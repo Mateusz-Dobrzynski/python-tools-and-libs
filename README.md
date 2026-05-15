@@ -1,7 +1,7 @@
 Usage: checkout to relevant commits and read related instructions:
 
 ```
-git commit hash checkout [hash]
+git checkout [hash]
 ```
 
 1. [uv and project management](./docs/01_uv.md): `f03d2c8`
