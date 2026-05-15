@@ -1,6 +1,11 @@
 # 3. Providing observability with logging 📝
 
-# Creating a logger
+## Checking out to a relevant commit
+```
+git checkout fb943b0
+```
+
+## Creating a logger
 
 Creating a file-specific logger:
 ```py
