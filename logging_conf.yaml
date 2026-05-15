@@ -1,0 +1,19 @@
+formatters:
+  console:
+    (): uvicorn.logging.DefaultFormatter
+    datefmt: "%Y-%m-%d %H:%M:%S"
+    fmt: "%(levelprefix)s %(asctime)s - %(name)s - %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: console
+    stream: ext://sys.stdout
+
+root:
+  handlers:
+    - console
+  level: INFO
+
+version: 1
+disable_existing_loggers: false
