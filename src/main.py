@@ -2,10 +2,7 @@ from fastapi import FastAPI
 from fastapi.exceptions import HTTPException
 from pydantic import BaseModel
 
-from database import get_connection
-
 app = FastAPI()
-get_connection()
 
 
 class NewUser(BaseModel):
