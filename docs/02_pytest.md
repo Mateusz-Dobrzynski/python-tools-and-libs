@@ -1,7 +1,7 @@
 # 2. Ensuring code quality with pytest ✅
 
 ## Checking out to a relevant commit
-```
+```bash
 git checkout 4c835b7
 ```
 
@@ -25,11 +25,43 @@ git checkout 4c835b7
 ## Running pytest with uv
 
 Install pytest:
-```
+```bash
 uv add pytest
 ```
 
 Run tests:
-```
+```bash
 uv run pytest
+```
+
+## Coverage reports
+```bash
+uv add coverage
+```
+
+Running tests and collecting coverage data:
+
+```bash
+uv run coverage run -m pytest
+```
+
+Have a look around:
+
+```bash
+ls -latr
+```
+
+Did you notice something new?
+
+
+Display coverage report:
+
+```
+uv run coverage report -m
+```
+
+Generate a HTML report:
+
+```
+uv run coverage html
 ```
