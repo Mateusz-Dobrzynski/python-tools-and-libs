@@ -123,3 +123,84 @@ def test_variable_fixture_content_reprise(database_populated_with_content):
 
     assert credit < 0
 ```
+
+## pytest test selection
+
+Add and execute these tests:
+
+```py
+import random
+import time
+
+
+def _perform_sleep(min_seconds: float, max_seconds: float) -> None:
+    time.sleep(random.uniform(min_seconds, max_seconds))
+
+
+def test_quick_alpha():
+    _perform_sleep(0.05, 1)
+
+
+def test_quick_bravo():
+    _perform_sleep(0.05, 1)
+
+
+def test_quick_charlie():
+    _perform_sleep(0.05, 1)
+
+
+def test_slow_alpha():
+    _perform_sleep(15, 90)
+
+
+def test_slow_bravo():
+    _perform_sleep(15, 90)
+```
+
+Decorate slow tests with `@pytest.mark.slow`
+```py
+@pytest.mark.slow
+def test_example()
+```
+
+Run only quick tests with:
+```bash
+uv run pytest -m "not slow"
+```
+
+### Skipping slow tests by default
+
+[Pytest reference](https://docs.pytest.org/en/latest/example/simple.html#control-skipping-of-tests-according-to-command-line-option)
+
+Add this to `test/conftest.py`:
+
+```py
+import pytest
+
+def pytest_addoption(parser):
+    parser.addoption('--slow', action='store_true', default=False,
+                      help='Also run slow tests')
+
+def pytest_runtest_setup(item):
+    """Skip tests if they are marked as slow and --slow is not given"""
+    if getattr(item.obj, 'slow', None) and not item.config.getvalue('slow'):
+        py.test.skip('slow tests not requested')
+```
+
+Test the behavior:
+
+```bash
+uv run pytest
+```
+
+```bash
+uv run pytest --slow
+```
+
+```bash
+uv run pytest --help
+```
+
+```bash
+uv run pytest --help | grep -B 2 slow
+```
