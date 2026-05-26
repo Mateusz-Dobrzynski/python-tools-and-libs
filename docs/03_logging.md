@@ -34,6 +34,10 @@ logger.warning("Some warning message")
 logger.error("Some error message")
 ```
 
+## Connecting the dots: showing logs in tests
+
+[Pytest reference](https://docs.pytest.org/en/7.1.x/how-to/logging.html)
+
 ## Level up: log visualizations 🚀
 
 [Prometheus x Grafana demo](https://prometheus.io/docs/visualization/grafana/)
