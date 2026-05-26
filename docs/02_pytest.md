@@ -50,6 +50,11 @@ Have a look around:
 ```bash
 ls -latr
 ```
+- `-a` – show hidden files
+- `-l` – use a long listing format
+- `-t` – sort by modification time (newest first)
+- `-r` – reverse the sort order
+
 
 Did you notice something new?
 
