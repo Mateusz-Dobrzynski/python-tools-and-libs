@@ -35,6 +35,9 @@ uv run pytest
 ```
 
 ## Coverage reports
+
+[Coverage reference](https://coverage.readthedocs.io/en/7.14.0/)
+
 ```bash
 uv add coverage
 ```
@@ -69,4 +72,54 @@ Generate a HTML report:
 
 ```
 uv run coverage html
+```
+
+## pytest fixtures
+
+[Fixtures reference](https://docs.pytest.org/en/7.1.x/how-to/fixtures.html)
+
+Create a new test file and paste the following:
+
+```py
+from math import floor
+from random import random
+
+import pytest
+
+
+@pytest.fixture
+def database_populated_with_content():
+    return {
+        "fridges": [{"user": "alice", "content": ["Tomato", "Milk", "Eggs"]}],
+        "users": [
+            {"username": "alice", "plan": "premium", "credit": floor(random() * 500)}
+        ],
+    }
+
+
+def test_fixture_demonstration(database_populated_with_content):
+    ...
+
+    assert username == "alice"
+```
+
+### Fixture independence
+
+Add and run these tests:
+
+```py
+def test_variable_fixture_content(database_populated_with_content):
+    content = database_populated_with_content
+
+    credit = content["users"].first()["credit"]
+
+    assert credit < 0
+
+
+def test_variable_fixture_content_reprise(database_populated_with_content):
+    content = database_populated_with_content
+
+    credit = content["users"].first()["credit"]
+
+    assert credit < 0
 ```
