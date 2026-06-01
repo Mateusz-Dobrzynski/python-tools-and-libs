@@ -17,7 +17,6 @@ def test_create_user_returns_username():
     assert response.json() == {"username": "alice"}
 
 
-@pytest.mark.skip(reason="this can be implemented later")
 def test_endpoint_for_reversing_username():
     # GIVEN
     client = TestClient(app)
