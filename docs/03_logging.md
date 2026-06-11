@@ -21,19 +21,10 @@ uv add pyyaml
 
 Running uvicorn with logging configured:
 ```bash
-PORT=2026
-uv run python -m uvicorn src.main:app --port $PORT --reload --log-config logging_conf.yaml
+uv run python -m uvicorn src.main:app --reload --log-config logging_conf.yaml
 ```
 - `--log-config logging_conf.yaml`: loads the custom logging configuration from `logging_conf.yaml`.
 
-Note: Uvicorn handles logging with the above function alone. Otherwise the following would be required:
-
-```py
-with open("logging_conf.yaml", "r", encoding="utf-8") as f:
-    logging.config.dictConfig(yaml.safe_load(f))
-
-logger = logging.getLogger(__name__)
-```
 
 [Logging library reference](https://docs.python.org/4/library/logging.html#)
 
@@ -43,6 +34,24 @@ logger.debug("Some debug info")
 logger.info("Some info message")
 logger.warning("Some warning message")
 logger.error("Some error message")
+```
+
+## Standalone logging
+
+A minimal example of standalone logging (`logging-conf.yaml` required):
+
+```py
+import logging.config
+from logging import getLogger
+
+import yaml
+
+with open("logging_conf.yaml", "r", encoding="utf-8") as f:
+    logging.config.dictConfig(yaml.safe_load(f))
+
+logger = getLogger(__name__)
+
+logger.info("Hello World!")
 ```
 
 ## Connecting the dots: showing logs in tests
