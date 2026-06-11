@@ -1,5 +1,10 @@
 # Debugging with uv with VS Code
 
+## Checking out to a relevant commit
+```bash
+git checkout 7320625
+```
+
 ## Setting up a debugger
 
 1. Install VS Code extensions
@@ -41,4 +46,22 @@
 - Reload the file ,
 - Define a custom port to expose.
 
-## Using the debugger
+## Debugging pytest runs
+
+```json
+{
+  "name": "Pytest: Debug",
+  "type": "debugpy",
+  "request": "launch",
+  "python": ".venv/bin/python",
+  "module": "pytest",
+  "console": "integratedTerminal",
+  "justMyCode": true,
+  "env": {
+    "PYTHONPATH": "${workspaceFolder}"
+  }
+}
+```
+
+## Debugging in action
+Test `test_loyal_users.py` and examine the source of failures.
