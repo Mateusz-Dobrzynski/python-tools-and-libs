@@ -7,6 +7,7 @@ from pydantic import BaseModel
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
+logger.info("bajojajo")
 
 
 class NewUser(BaseModel):

@@ -28,7 +28,7 @@ import os
 VARIABLE = os.environ["VARIABLE"]
 ```
 
-TryExcept:
+Try/Except:
 
 ```py
 import os
