@@ -1,10 +1,5 @@
 # Debugging with uv with VS Code
 
-## Checking out to a relevant commit
-```bash
-git checkout 7320625
-```
-
 ## Setting up a debugger
 
 1. Install VS Code extensions
@@ -63,5 +58,21 @@ git checkout 7320625
 }
 ```
 
-## Debugging in action
-Test `test_loyal_users.py` and examine the source of failures.
+## Debugging in practice 🎯
+
+
+Prepare the following directory structure by properly placing [`main.py`](main.py) and [`test_loyal_users.py`](test_loyal_users.py):
+
+```
+.
+├── src
+│   ├── __init__.py
+│   ├── main.py
+├── test
+│   ├── __init__.py
+│   └── test_loyal_users.py
+├── pyproject.toml
+└── uv.lock
+```
+
+**TO-DO:** Run tests found in `test_loyal_users.py` and examine the source of failures.

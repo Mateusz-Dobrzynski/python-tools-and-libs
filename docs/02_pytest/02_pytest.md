@@ -1,14 +1,11 @@
 # 2. Ensuring code quality with pytest ✅
 
-## Checking out to a relevant commit
-```bash
-git checkout 4c835b7
-```
+## pytest setup
 
-## Directory structure (simplified)
+1. Prepare the following directory structure. All files are stored in `docs/pytest`.
+
 ```
 .
-├── README.md
 ├── src
 │   ├── __init__.py
 │   ├── main.py
@@ -22,14 +19,13 @@ git checkout 4c835b7
 
 - `__init__.py` – for proper imports and tests discovery (see [reference](https://www.geeksforgeeks.org/python/what-is-__init__-py-file-in-python/))
 
-## Running pytest with uv
+2. Install pytest
 
-Install pytest:
 ```bash
 uv add pytest
 ```
 
-Run tests:
+3. Run tests:
 ```bash
 uv run pytest
 ```

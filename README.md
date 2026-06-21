@@ -1,12 +1,7 @@
-Usage: checkout to relevant commits and read related instructions:
+# Python tools and libraries
 
-```
-git checkout [hash]
-```
+**Usage instructions**
 
-1. [uv and project management](./docs/01_uv.md): `f03d2c8`
-2. [pytest and quality at the source](./docs/02_pytest.md): `4c835b7`
-3. [logging](./docs/03_logging.md): `fb943b0`
-4. [.env](./docs/04_env.md)
-5. [Debugging with uv](./docs/05_debugging_uv.md) `7320625`
-6. [pyodbc](./docs/06_pyodbc.md): `91143ad`
+1. [Install `uv`](https://docs.astral.sh/uv/getting-started/installation/).
+2. Explore the [`docs`](./docs/) and select a directory regarding a tool you'd like to explore.
+3. In correspondingly named `.md` files you will find code snippets, documentation references, and simple tasks you can solve to get familiar with a given tool.

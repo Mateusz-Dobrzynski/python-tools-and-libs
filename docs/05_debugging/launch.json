@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+        "name": "uv debug (basic)",
+        "type": "debugpy",
+        "request": "launch",
+        "python": ".venv/bin/python",
+        "module": "uvicorn",
+        "args": ["src.main:app"]
+    },
+    {
+        "name": "Pytest: Debug",
+        "type": "debugpy",
+        "request": "launch",
+        "python": ".venv/bin/python",
+        "module": "pytest",
+        "console": "integratedTerminal",
+        "justMyCode": true,
+        "env": {
+            "PYTHONPATH": "${workspaceFolder}"
+        }
+    }
+  ]
+}

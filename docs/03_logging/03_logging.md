@@ -1,25 +1,22 @@
 # 3. Providing observability with logging 📝
 
-## Checking out to a relevant commit
-```bash
-git checkout fb943b0
-```
-
 ## Creating a logger
 
-Creating a file-specific logger:
+1. Create a file-specific logger:
 
 ```py
 import logging
 logger = logging.getLogger(__name__)
 ```
 
-Adding a dependency to use `logging_conf.yaml`:
+2. Add `pyyaml` to handle a logging conf file:
 ```bash
 uv add pyyaml
 ```
 
-Running uvicorn with logging configured:
+3. Place [`logging_conf.yaml`](./logging_conf.yaml) in the root of your project.
+
+Run uvicorn with configured logging:
 ```bash
 uv run python -m uvicorn src.main:app --reload --log-config logging_conf.yaml
 ```
