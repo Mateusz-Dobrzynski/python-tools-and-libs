@@ -33,9 +33,26 @@ logger.warning("Some warning message")
 logger.error("Some error message")
 ```
 
-## Standalone logging
+## Configuring logging in the source code
 
-A minimal example of standalone logging (`logging-conf.yaml` required):
+### Standalone logging (no configuration file needed)
+
+```py
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s:%(name)s:%(message)s",
+    force=True,
+)
+
+logger = logging.getLogger(__name__)
+
+logger.info("Hello World!")
+```
+
+### With `logging-conf.yaml`
+
 
 ```py
 import logging.config
