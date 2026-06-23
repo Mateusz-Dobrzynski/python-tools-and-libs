@@ -66,12 +66,11 @@ Prepare the following directory structure by properly placing [`main.py`](main.p
 ```
 .
 ├── src
-│   ├── __init__.py
-│   ├── main.py
+│   └── debugging
+│       ├── __init__.py
+│       └── main.py
 ├── test
-│   ├── __init__.py
 │   └── test_loyal_users.py
-├── pyproject.toml
 └── uv.lock
 ```
 
